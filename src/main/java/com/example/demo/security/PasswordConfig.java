@@ -10,6 +10,7 @@ public class PasswordConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+    	/* BCrypt is the must popular password encoder*/
         return new BCryptPasswordEncoder(10);
     }
 }

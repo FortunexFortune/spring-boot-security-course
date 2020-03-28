@@ -43,6 +43,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     @Bean
     protected UserDetailsService userDetailsService() {
+    	/*
+    	 *  UserDetailsService method is used to retrieve user from a database (in this case in memory)
+    	 * */
+    	/*
+    	 * In the latest versions of spring security password encoding is a must
+    	 * */
         UserDetails annaSmithUser = User.builder()
                 .username("annasmith")
                 .password(passwordEncoder.encode("password"))
@@ -60,7 +66,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .password(passwordEncoder.encode("password123"))
                 .roles(ADMINTRAINEE.name()) // ROLE_ADMINTRAINEE
                 .build();
-
+        
+        /*InMemoryUserDetailsManager is one of the classes that implements UserDetailsService*/
         return new InMemoryUserDetailsManager(
                 annaSmithUser,
                 lindaUser,

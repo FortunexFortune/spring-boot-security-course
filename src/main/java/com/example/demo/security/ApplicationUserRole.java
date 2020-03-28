@@ -20,4 +20,13 @@ public enum ApplicationUserRole {
     public Set<ApplicationUserPermission> getPermissions() {
         return permissions;
     }
+    
+    /* Added the following dependencies to gain access to the collection "Sets"
+     * 
+   		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>28.1-jre</version>
+		</dependency>
+     */
 }
