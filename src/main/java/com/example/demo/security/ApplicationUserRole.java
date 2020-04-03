@@ -11,8 +11,15 @@ import static com.example.demo.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
     STUDENT(Sets.newHashSet()),
-    ADMIN(Sets.newHashSet(COURSE_READ, COURSE_WRITE, STUDENT_READ, STUDENT_WRITE)),
-    ADMINTRAINEE(Sets.newHashSet(COURSE_READ, STUDENT_READ));
+    
+    ADMINTRAINEE(Sets.newHashSet
+    		(ApplicationUserPermission.COURSE_READ,
+    		ApplicationUserPermission.STUDENT_READ)),
+    
+    ADMIN(Sets.newHashSet(ApplicationUserPermission.COURSE_READ, 
+    		ApplicationUserPermission.COURSE_WRITE,
+    		ApplicationUserPermission.STUDENT_READ, 
+    		ApplicationUserPermission.STUDENT_WRITE));
 
     private final Set<ApplicationUserPermission> permissions;
 
@@ -28,7 +35,7 @@ public enum ApplicationUserRole {
         Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
                 .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
                 .collect(Collectors.toSet());
-        permissions.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
+        permissions.add(new SimpleGrantedAuthority("ROLE_" + this.name())); // why are we returning the role???
         return permissions;
     }
 }
