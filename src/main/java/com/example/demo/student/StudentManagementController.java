@@ -15,7 +15,12 @@ public class StudentManagementController {
             new Student(2, "Maria Jones"),
             new Student(3, "Anna Smith")
     );
-
+/*
+ * @PreAuthorize
+ * This annotation is used to protect API EndPoints by role and authorities 
+ * Is an alternative way to the AntMatcher  method commonly used in the spring security configure method
+ * */
+    
 //    hasRole('ROLE_') hasAnyRole('ROLE_') hasAuthority('permission') hasAnyAuthority('permission')
 
     @GetMapping

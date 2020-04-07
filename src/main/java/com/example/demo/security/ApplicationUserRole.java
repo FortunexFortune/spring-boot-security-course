@@ -10,16 +10,20 @@ import java.util.stream.Collectors;
 import static com.example.demo.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
+	
     STUDENT(Sets.newHashSet()),
     
-    ADMINTRAINEE(Sets.newHashSet
-    		(ApplicationUserPermission.COURSE_READ,
-    		ApplicationUserPermission.STUDENT_READ)),
+    ADMINTRAINEE(Sets.newHashSet(
+    		ApplicationUserPermission.COURSE_READ,
+    		ApplicationUserPermission.STUDENT_READ
+    		)),
     
-    ADMIN(Sets.newHashSet(ApplicationUserPermission.COURSE_READ, 
+    ADMIN(Sets.newHashSet(
+    		ApplicationUserPermission.COURSE_READ, 
     		ApplicationUserPermission.COURSE_WRITE,
     		ApplicationUserPermission.STUDENT_READ, 
-    		ApplicationUserPermission.STUDENT_WRITE));
+    		ApplicationUserPermission.STUDENT_WRITE
+    		));
 
     private final Set<ApplicationUserPermission> permissions;
 
