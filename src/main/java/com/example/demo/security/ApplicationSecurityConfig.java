@@ -45,10 +45,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     protected UserDetailsService userDetailsService() {
     	/*
     	 *  UserDetailsService method is used to retrieve user from a database (in this case in memory)
-    	 * */
-    	/*
+    	 *
     	 * In the latest versions of spring security password encoding is a must
-    	 * */
+    	 * 
+    	 */
         UserDetails annaSmithUser = User.builder()
                 .username("annasmith")
                 .password(passwordEncoder.encode("password"))
@@ -73,6 +73,5 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 lindaUser,
                 tomUser
         );
-
     }
 }
